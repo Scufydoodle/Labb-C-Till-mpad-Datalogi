@@ -69,8 +69,8 @@ class MinHeap:
             else:
                 if self.peek().downloads < bookList[i].downloads:
                     self.data[0] = bookList[i]
-                    self._sift_down(0) #Sista raden är med hjälp av AI. Det gjordes med följande prompt:"Hur ska sift down användas här för att sortera listan korrekt efter att ha bytt ut föräldrer"
-            
+                    self._sift_down(0) #Implementation av sift_down fick jag insperation av AI för.
+             
         
 
         

@@ -5,7 +5,7 @@ and the minheap in an array'
 """
  
 class MaxHeap:
-    def __init__(self, items=None):
+    def __init__(self, items=None, ):
         self.data = items
         for i in range(len(self.data) // 2 - 1, -1, -1):
             self._sift_down(i)

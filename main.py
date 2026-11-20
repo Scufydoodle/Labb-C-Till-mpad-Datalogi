@@ -18,10 +18,9 @@ def createBookList(filename):
 def main():
     bookList = createBookList("böcker.csv")
     maxHeap = MaxHeap(bookList)
-    minHeap = MinHeap(len(bookList))
+    minHeap = MinHeap(20)
     minHeap.createMinHeap(bookList)
-    print("Min Heap:")
-    for book in minHeap.data:
-        print(book)
+    for i in range(len(minHeap.data)):
+        print(minHeap.data[i])
 
 main()

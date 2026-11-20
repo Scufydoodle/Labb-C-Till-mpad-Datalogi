@@ -39,10 +39,11 @@ class MinHeap:
         data = self.data
         while i > 0:
             parent = (i - 1) // 2
+           
             if data[i].downloads < data[parent].downloads:
                 data[i], data[parent] = data[parent], data[i]
-                i = parent
-            else:
+                i = parent  
+            else: 
                 break
 
     def _sift_down(self, i):
@@ -63,14 +64,15 @@ class MinHeap:
     #Denna funktion byggde jag själv för att begränsa antalet data som finns i minHeap
     def createMinHeap(self, bookList):
         for i in range(len(bookList)):
-            if i <= 99:
+            if len(self.data) < self.maxSize:
                 self.insert(bookList[i])
-            elif self.peek().downloads < bookList[i].downloads and i > 99:
-                self.data[0] = bookList[i]
-
-        for i in range(len(self.data) // 2 - 1, -1, -1):
-                    self._sift_down(i)
+            else:
+                if self.peek().downloads < bookList[i].downloads:
+                    self.data[0] = bookList[i]
+                    self._sift_down(0) #Sista raden är med hjälp av AI. Det gjordes med följande prompt:"Hur ska sift down användas här för att sortera listan korrekt efter att ha bytt ut föräldrer"
+            
         
+
         
         
 

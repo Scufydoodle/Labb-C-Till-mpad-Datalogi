@@ -4,7 +4,6 @@ Min Heap skapades av följande prompt till claude:
 'Create a maxheap and a min-heap in python.'
 """
 #Jag valde själv att använda en array för att lagra datan, då min heapen ska vara begränsad, något som en lista inte kan vara
-
 class MinHeap:
     def __init__(self, maxSize):
         self.maxSize = maxSize
@@ -59,7 +58,6 @@ class MinHeap:
                 break
             data[i], data[smallest] = data[smallest], data[i]
             i = smallest
-
 
     #Denna funktion byggde jag själv för att begränsa antalet data som finns i minHeap
     def createMinHeap(self, bookList):

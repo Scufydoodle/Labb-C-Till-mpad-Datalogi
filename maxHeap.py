@@ -3,7 +3,7 @@ Max Heap skapades av följande prompt till claude:
 'Create a maxheap and a min-heap in python. I want the maxheap to be stored in a list, 
 and the minheap in an array'
 """
- 
+
 class MaxHeap:
     def __init__(self, items=None, ):
         self.data = items

@@ -5,7 +5,7 @@ from maxHeap import MaxHeap
 from minHeap import MinHeap
 from book import Book
 import csv
-from memory_profiler import profile
+import tracemalloc
 from codecarbon import EmissionsTracker
 
 
@@ -19,32 +19,22 @@ def createBookList(filename):
            bookList.append(newBook)
     return bookList
 
-#@profile
-def initMinHeap(bookList, maxSize):
+
+def initMinHeap(maxSize):
+    bookList = createBookList("böcker.csv")
     minHeap = MinHeap(maxSize)
     minHeap.createMinHeap(bookList)
 
-def initMaxHeap(bookList, maxSize):
+def initMaxHeap(maxSize):
+    bookList = createBookList("böcker.csv")
     maxHeap = MaxHeap(bookList)
     limitedMaxHeap = []
     for i in range(maxSize):
         limitedMaxHeap.append(maxHeap.data[i])
+tracemalloc.start()
 
+initMinHeap(10000)
 
-def main(maxSize):
-    bookList = createBookList("böcker.csv")
-    
-    minHeapTracker = EmissionsTracker()
-    minHeapTracker.start()
-    initMinHeap(bookList, maxSize)
-    minHeapEmissions = minHeapTracker.stop()
-    
-    maxHeapTracker = EmissionsTracker()
-    maxHeapTracker.start()
-    initMaxHeap(bookList, maxSize)
-    maxHeapEmissions = maxHeapTracker.stop()
-    print(f"Maxheap utsläpp:{maxHeapEmissions*1000}")
-    print(f"MinHeap utsläpp:{minHeapEmissions*1000}")
-    
+print(tracemalloc.get_traced_memory())
 
-main(100)
+tracemalloc.stop()

@@ -38,7 +38,7 @@ class MinHeap:
         data = self.data
         while i > 0:
             parent = (i - 1) // 2
-           
+        
             if data[i].downloads < data[parent].downloads:
                 data[i], data[parent] = data[parent], data[i]
                 i = parent  
@@ -68,10 +68,10 @@ class MinHeap:
                 if self.peek().downloads < bookList[i].downloads:
                     self.data[0] = bookList[i]
                     self._sift_down(0) #Implementation av sift_down fick jag insperation av AI för.
-             
+            
         
 
-        
-        
+            
+            
 
-        
+            
